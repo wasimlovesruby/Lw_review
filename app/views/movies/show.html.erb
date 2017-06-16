@@ -67,9 +67,12 @@
   </div>
 </div>
 <% if current_user.admin? %>
-  <%= link_to 'Edit Movie', edit_movie_path(@movie) %> |
+  <%= link_to 'Edit Movie', edit_movie_path(@movie) %>
 <% end %>
-  <%= link_to 'Home', movies_path %>
+
+  <%= link_to "Home", movies_path %>
+
+
  
 
  <script>
