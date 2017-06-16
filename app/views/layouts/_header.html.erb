@@ -13,9 +13,12 @@
 		<div class="collapse navbar-collapse" data-target="#bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<% if user_signed_in? %>
-					<li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
+					<% if current_user.admin? %>
+						<li><%= link_to "New Movie", new_movie_path, class: "active" %></li>
+					<% end %>
 					<li><%= link_to "Setting", edit_user_registration_path, class: "active" %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, class: "active" %></li>
+					<li><%= link_to "Sign out", destroy_user_session_path,method: :delete, class: "active" %></li>
+					
 				<% else %>
 					<li><%= link_to "Sign In", new_user_session_path, class: "active" %></li>
 					<li><%= link_to "Sign up", new_user_registration_path, class: "active" %></li>

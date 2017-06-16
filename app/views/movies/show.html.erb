@@ -47,9 +47,38 @@
           <%= link_to "write a review", new_movie_review_path(@movie) %>
         </div>
       </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @movie.title %></h1>
+        <p><%= @movie.description %></p>
+        <% if @reviews.blank? %>
+          <h2>No review yet, would you like to be first?</h2>
+          <%= link_to "write a review", new_movie_review_path(@movie), class: "btn btn-danger" %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div id="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+                  <p class="pad"><%= review.comment %></p>
+                  <p>Reviewd By (<%= review.user.email %>)</p>
+          <% end %>
+        <% end %>
+             </div>
+      </div>
     </div>
   </div>
 </div>
+<% if current_user.admin? %>
+  <%= link_to 'Edit Movie', edit_movie_path(@movie) %> |
+<% end %>
+  <%= link_to 'Home', movies_path %>
+ 
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+ <script>
+   $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score:function(){
+      return $(this).attr('data-score');
+    }
+   });
+ </script>
+ 

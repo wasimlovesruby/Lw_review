@@ -22,10 +22,13 @@ body {
 	margin: 0 0 20px 0;
 }
 
-.reviews{
-	padding: 150px 0;
-	border-bottom:1px solid #EAEAEA;
+#reviews{
+	padding:60px 0;
 	.star-rating{
 	padding-bottom:8px;
+	}
+	.pad{
+		border-bottom:1px solid #FFDE40;
+		padding-bottom:10px;
 	}
 }

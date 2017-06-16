@@ -10,18 +10,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="row">
+<div class=" col-md-4 form-group">
+  <div>
     <%= f.label :rating %>
-    <%= f.number_field :rating %>
+    <%= f.number_field :rating, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div>
     <%= f.label :comment %>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-success"%>
   </div>
+</div>
+</div>
 <% end %>
